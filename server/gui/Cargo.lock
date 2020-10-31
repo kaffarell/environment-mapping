@@ -498,6 +498,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "gui"
+version = "0.1.0"
+dependencies = [
+ "kiss3d",
+ "nalgebra",
+ "posixmq",
+]
+
+[[package]]
 name = "hashbrown"
 version = "0.9.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -945,6 +954,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "posixmq"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2dbe23bcfc809221c25982bd3c6e5ec38485181af239d7f39e4af9d91824c8b7"
+dependencies = [
+ "libc",
+]
+
+[[package]]
 name = "ppv-lite86"
 version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1082,14 +1100,6 @@ name = "redox_syscall"
 version = "0.1.57"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "41cc0f7e4d5d4544e8861606a285bb08d3e70712ccc7d2b84d7c0ccfaf4b05ce"
-
-[[package]]
-name = "rust_kiss3d"
-version = "0.1.0"
-dependencies = [
- "kiss3d",
- "nalgebra",
-]
 
 [[package]]
 name = "rustc-demangle"

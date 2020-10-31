@@ -1,2 +1,3 @@
 client/target
-server/target
+server/server/target
+server/gui/target

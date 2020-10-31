@@ -1,5 +1,5 @@
 [package]
-name = "rust_kiss3d"
+name = "server"
 version = "0.1.0"
 authors = ["gabriel <gabrielgoller123@gmail.com>"]
 edition = "2018"
@@ -7,5 +7,5 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-kiss3d = "0.27.0"
-nalgebra = "0.23.0"
+rocket = "0.4.5"
+posixmq = "0.2.0"

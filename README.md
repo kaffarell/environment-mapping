@@ -1,5 +1,5 @@
 # environment-mapping
-Maps the surrounding space with a ultrasonic sensor and a rotary encoder.
+Maps the surrounding space with an ultrasonic sensor and a rotary encoder.
 Currently the range is up to 4 meter and there is only horizontal pivoting.
 
 ## Todo:

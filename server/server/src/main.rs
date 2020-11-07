@@ -1,18 +1,24 @@
-#![feature(decl_macro)]
-#[macro_use] extern crate rocket;
+use actix_web::{post, App, HttpResponse, HttpServer, Responder};
 use posixmq::PosixMq;
 
 // Post route where the degrees are send
-#[post("/degree", data = "<degree>")]
-fn degree(degree: String) -> &'static str {
+#[post("/degree")]
+async fn degree(req_body: String) -> impl Responder {
     // Create messagequeue with name /degree 
     let mq = PosixMq::create("/degree").unwrap();
     // Convert to integer and send degree
-    mq.send(0, (degree.trim().parse::<f32>().unwrap()).to_string().as_bytes()).unwrap();
-    return "OK";
+    mq.send(0, (req_body.trim().parse::<f32>().unwrap()).to_string().as_bytes()).unwrap();
+    return HttpResponse::Ok().body("OK");
 }
 
-fn main() {
-    // Setup rocket
-    rocket::ignite().mount("/", routes![degree]).launch();
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| {
+        App::new()
+            .service(degree)
+    })
+    .bind("127.0.0.1:8080")?
+    .run()
+    .await
 }
+

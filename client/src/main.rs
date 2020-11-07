@@ -17,7 +17,7 @@ fn main() {
 #[tokio::main]
 async fn post_request(data: f32) -> Result<(), reqwest::Error> {
     let client = reqwest::Client::new();
-    let res = client.post("http://httpbin.org/post")
+    let res = client.post("http://192.168.1.148:8080")
         .body(data.to_string())
         .send()
         .await?;
